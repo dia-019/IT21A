@@ -3,19 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Employee Class Example</title>
+    <title>Person and Student Classes</title>
+    <script>
+        class Person {
+            constructor(name) {
+                this.name = name;
+            }
+            sayName() {
+                console.log(this.name);
+            }
+        }
+
+        class Student extends Person {
+            constructor(name, rollNumber) {
+                super(name);
+                this.rollNumber = rollNumber;
+            }
+            logDetails() {
+                console.log(`Name: ${this.name}, Roll number: ${this.rollNumber}`);
+            }
+            sayName() {
+                console.log("From Student");
+                super.sayName();
+            }
+        }
+
+        window.onload = function() {
+            var student = new Student("Diana", 1);
+            student.logDetails();
+            student.sayName();
+        };
+    </script>
 </head>
 <body>
-    <h1>Employee Information</h1>
-    <label for="name">Name:</label>
-    <input type="text" id="name" placeholder="Enter employee name">
-    <br><br>
-    <label for="salary">Base Salary:</label>
-    <input type="number" id="salary" placeholder="Enter base salary">
-    <br><br>
-    <button id="submit">Submit</button>
-    <h2>Output:</h2>
-    <p id="outputName"></p>
-    <p id="outputSalary"></p>
-
-
+    <h1>See the Console for the Output</h1>
+    <p></p>
+</body>
+</html>

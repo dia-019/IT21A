@@ -1,31 +1,26 @@
-
-class Employee {
-    #name;
-    #baseSalary;
-
-    setName(val) {
-        this.#name = val;
+class Person{
+    constructor(name){
+    this.name = name;
     }
-    setBaseSalary(val) {
-        this.#baseSalary = val;
+    sayName(){
+    console.log(this.name);
     }
-    getName() {
-        return this.#name;
     }
-    getSalary() {
-        let bonus = 1000;
-        return this.#baseSalary + bonus;
+    class Student extends Person{
+    constructor(name, rollNumber){
+    super(name);
+    this.rollNumber = rollNumber;
     }
-}
-
-document.getElementById('submit').addEventListener('click', () => {
-    const emp = new Employee();
-    const name = document.getElementById('name').value;
-    const salary = parseFloat(document.getElementById('salary').value);
-
-    emp.setName(name);
-    emp.setBaseSalary(salary);
-
-    document.getElementById('outputName').textContent = `Name: ${emp.getName()}`;
-    document.getElementById('outputSalary').textContent = `Total Salary: ${emp.getSalary()}`;
-});
+    
+    logDetails(){
+    console.log(`Name: ${this.name}, Roll
+    number: ${this.rollNumber}`)
+    }
+    sayName(){
+    console.log("From Student");
+    super.sayName();
+    }
+    }
+    var student = new Student("diana rose", 1);
+    student.logDetails();
+    student.sayName();
